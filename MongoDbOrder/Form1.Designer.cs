@@ -1,4 +1,7 @@
-﻿namespace MongoDbOrder
+﻿using System;
+using System.Windows.Forms;
+
+namespace MongoDbOrder
 {
     partial class Form1
     {
@@ -57,6 +60,7 @@
             this.btnList.TabIndex = 2;
             this.btnList.Text = "Listele";
             this.btnList.UseVisualStyleBackColor = true;
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // dataGridView1
             // 
@@ -65,6 +69,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(766, 205);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // txtClient
             // 
@@ -216,6 +221,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

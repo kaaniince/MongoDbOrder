@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using MongoDbOrder.Entities;
 using System;
 using System.Collections.Generic;
@@ -25,5 +26,26 @@ namespace MongoDbOrder.Services
             ordersCollection.InsertOne(document);//Insert the document into the collection
         }
 
+        public List<Order> GetAllOrders()
+        {
+            var connection = new MongoDbConnection();
+            var ordersCollection = connection.GetOrdersCollection();
+            var orders = ordersCollection.Find(new BsonDocument()).ToList();
+            List<Order> ordersList = new List<Order>();
+            foreach (var order in orders)
+            {
+                ordersList.Add(new Order
+                {
+                    ClientName = order["ClientName"].ToString(),
+                    TownName = order["TownName"].ToString(),
+                    CityName = order["CityName"].ToString(),
+                    OrderId = order["_id"].ToString(),
+                    TotalPrice = order["TotalPrice"].AsDecimal
+                });
+
+            }
+            return ordersList;
+
+        }
     }
 }
