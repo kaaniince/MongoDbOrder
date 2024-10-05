@@ -47,6 +47,8 @@ namespace MongoDbOrder
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnGet = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -163,6 +165,7 @@ namespace MongoDbOrder
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Sil";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -173,6 +176,7 @@ namespace MongoDbOrder
             this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Güncelle";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnGet
             // 
@@ -183,6 +187,7 @@ namespace MongoDbOrder
             this.btnGet.TabIndex = 15;
             this.btnGet.Text = "Getir";
             this.btnGet.UseVisualStyleBackColor = true;
+            this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
             // 
             // pictureBox1
             // 
@@ -194,11 +199,31 @@ namespace MongoDbOrder
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
+            // txtId
+            // 
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtId.Location = new System.Drawing.Point(117, 22);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(146, 24);
+            this.txtId.TabIndex = 18;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblId.Location = new System.Drawing.Point(85, 22);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(26, 18);
+            this.lblId.TabIndex = 17;
+            this.lblId.Text = "ID:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnGet);
             this.Controls.Add(this.btnUpdate);
@@ -244,6 +269,8 @@ namespace MongoDbOrder
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnGet;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private TextBox txtId;
+        private Label lblId;
     }
 }
 

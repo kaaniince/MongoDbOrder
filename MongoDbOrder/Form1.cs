@@ -40,5 +40,32 @@ namespace MongoDbOrder
 
         }
 
-       }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string orderId = txtId.Text;    
+            orderOperation.DeleteOrder(orderId);
+            MessageBox.Show("Order deleted successfully");
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string id = txtId.Text;
+            var updateOrder = new Order
+            {
+                ClientName = txtClient.Text,
+                TownName = txtTown.Text,
+                CityName = txtCity.Text,
+                TotalPrice = decimal.Parse(txtTotalPrice.Text),
+                OrderId = id
+            };
+            orderOperation.updateOrder(updateOrder);
+        }
+
+        private void btnGet_Click(object sender, EventArgs e)
+        {
+            string id = txtId.Text;
+            Order orders = orderOperation.GetOrderById(id);
+            dataGridView1.DataSource = new List<Order> { orders };
+        }
+    }
 }
